@@ -4,6 +4,7 @@ import moment from "moment";
 
 import { useGetCryptosQuery } from "../services/cryptoAPI";
 import { useGetCryptoNewsQuery } from "../services/cryptoNewsAPI";
+import Loader from "./Loader";
 // import Loader from './Loader';
 
 const demoImage =
@@ -20,7 +21,7 @@ const News = ({ simplified }) => {
     count: simplified ? 6 : 12,
   });
 
-  if (!cryptoNews?.value) return "Loading...";
+  if (!cryptoNews?.value) return <Loader />;
 
   return (
     <Row gutter={[24, 24]}>
